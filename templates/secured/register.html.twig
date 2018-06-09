@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col">
+            <h3>Create new user</h3>
+        </div>
+    </div>
+
+    {{ include('secured/_form.html.twig') }}
+{% endblock %}
