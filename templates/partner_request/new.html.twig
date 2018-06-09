@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New PartnerRequest{% endblock %}
+{% block title %}New Partner Request{% endblock %}
 
 {% block body %}
-    <h1>Create new PartnerRequest</h1>
+
+    <div class="row">
+        <div class="col-1">
+            <a href="{{ path('partner_request_index') }}"><i class="fas fa-chevron-left fa-2x"></i></a>
+        </div>
+        <div class="col-11">
+            <h1>Create new Partner Request</h1>
+        </div>
+    </div>
 
     {{ include('partner_request/_form.html.twig') }}
-
-    <a href="{{ path('partner_request_index') }}">back to list</a>
 {% endblock %}

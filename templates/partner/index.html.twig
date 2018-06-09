@@ -3,7 +3,7 @@
 {% block title %}Partner index{% endblock %}
 
 {% block body %}
-    <h1>Partner index</h1>
+    <h1>Partners</h1>
 
     <table class="table">
         <thead>
@@ -12,15 +12,6 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Address</th>
-                <th>Picture</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th>Horary</th>
-                <th>Comment</th>
-                <th>IsSpecialOffer</th>
-                <th>Offer</th>
-                <th>TripAdvisorLink</th>
                 <th>Country</th>
                 <th>actions</th>
             </tr>
@@ -32,19 +23,10 @@
                 <td>{{ partner.name }}</td>
                 <td>{{ partner.email }}</td>
                 <td>{{ partner.phone }}</td>
-                <td>{{ partner.address }}</td>
-                <td>{{ partner.picture }}</td>
-                <td>{{ partner.latitude }}</td>
-                <td>{{ partner.longitude }}</td>
-                <td>{{ partner.horary }}</td>
-                <td>{{ partner.comment }}</td>
-                <td>{{ partner.isSpecialOffer ? 'Yes' : 'No' }}</td>
-                <td>{{ partner.offer }}</td>
-                <td>{{ partner.tripAdvisorLink }}</td>
                 <td>{{ partner.country }}</td>
                 <td>
-                    <a href="{{ path('partner_show', {'id': partner.id}) }}">show</a>
-                    <a href="{{ path('partner_edit', {'id': partner.id}) }}">edit</a>
+                    <a href="{{ path('partner_show', {'id': partner.id}) }}"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('partner_edit', {'id': partner.id}) }}"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -55,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('partner_new') }}">Create new</a>
+    <a href="{{ path('partner_new') }}" class="btn btn-outline-success">Create new</a>
 {% endblock %}
