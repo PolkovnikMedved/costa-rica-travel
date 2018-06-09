@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PartnerRequest{% endblock %}
+
+{% block body %}
+    <h1>Edit PartnerRequest</h1>
+
+    {{ include('partner_request/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('partner_request_index') }}">back to list</a>
+
+    {{ include('partner_request/_delete_form.html.twig') }}
+{% endblock %}

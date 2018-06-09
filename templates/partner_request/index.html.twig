@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PartnerRequest index{% endblock %}
+
+{% block body %}
+    <h1>PartnerRequest index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for partner_request in partner_requests %}
+            <tr>
+                <td>{{ partner_request.id }}</td>
+                <td>{{ partner_request.email }}</td>
+                <td>{{ partner_request.name }}</td>
+                <td>{{ partner_request.phone }}</td>
+                <td>
+                    <a href="{{ path('partner_request_show', {'id': partner_request.id}) }}">show</a>
+                    <a href="{{ path('partner_request_edit', {'id': partner_request.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('partner_request_new') }}">Create new</a>
+{% endblock %}

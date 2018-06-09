@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PartnerType index{% endblock %}
+
+{% block body %}
+    <h1>PartnerType index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Picture</th>
+                <th>Country</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for partner_type in partner_types %}
+            <tr>
+                <td>{{ partner_type.id }}</td>
+                <td>{{ partner_type.name }}</td>
+                <td>{{ partner_type.picture }}</td>
+                <td>{{ partner_type.country }}</td>
+                <td>
+                    <a href="{{ path('partner_type_show', {'id': partner_type.id}) }}">show</a>
+                    <a href="{{ path('partner_type_edit', {'id': partner_type.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('partner_type_new') }}">Create new</a>
+{% endblock %}
