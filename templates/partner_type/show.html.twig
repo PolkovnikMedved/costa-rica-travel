@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <th>Picture</th>
-                <td>{{ partner_type.picture }}</td>
+                <td><img src="{{ vich_uploader_asset(partner_type, 'imageFile') }}" alt="{{ partner_type.picture }}" class="mini-picture"/></td>
             </tr>
             <tr>
                 <th>Country</th>

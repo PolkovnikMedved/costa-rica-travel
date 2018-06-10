@@ -7,3 +7,12 @@ footer{
 main{
     margin-bottom:50px;
 }
+
+.picture{
+    width:100px;
+    height:auto;
+}
+.mini-picture{
+    width:50px;
+    height: auto;
+}

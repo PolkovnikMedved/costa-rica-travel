@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ partner_type.id }}</td>
                 <td>{{ partner_type.name }}</td>
-                <td>{{ partner_type.picture }}</td>
+                <td><img src="{{ vich_uploader_asset(partner_type, 'imageFile') }}" alt="{{ partner_type.picture }}" class="mini-picture"/></td>
                 <td>{{ partner_type.country }}</td>
                 <td>
                     <a href="{{ path('partner_type_show', {'id': partner_type.id}) }}"><i class="far fa-eye"></i></a>

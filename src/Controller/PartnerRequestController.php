@@ -65,7 +65,9 @@ class PartnerRequestController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('partner_request_edit', ['id' => $partnerRequest->getId()]);
+            $this->addFlash('success', 'The partner request has been updated.');
+
+            return $this->redirectToRoute('partner_request_show', ['id' => $partnerRequest->getId()]);
         }
 
         return $this->render('partner_request/edit.html.twig', [

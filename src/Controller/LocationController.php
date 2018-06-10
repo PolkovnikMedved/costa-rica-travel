@@ -65,7 +65,9 @@ class LocationController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('location_edit', ['id' => $location->getId()]);
+            $this->addFlash('success', 'The location has been updated.');
+
+            return $this->redirectToRoute('location_show', ['id' => $location->getId()]);
         }
 
         return $this->render('location/edit.html.twig', [

@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <th>Picture</th>
-                <td>{{ partner.picture }}</td>
+                <td><img src="{{ vich_uploader_asset(partner, 'imageFile') }}" alt="{{ partner.picture }}" class="picture"/></td>
             </tr>
             <tr>
                 <th>Latitude</th>
