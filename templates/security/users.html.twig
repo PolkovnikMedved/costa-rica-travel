@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Users
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col">
+            <h3>All users</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Active</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.firstName }}</td>
+                        <td>{{ user.lastName }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.createdAt|date('d/m/Y, H:i') }}</td>
+                        <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
+                        <td>
+                            <a href="{{ path('activate_user', {'id': user.id}) }}" onclick="return confirm('Are you sure you want to change blacklisted property ?');"><i class="fas fa-ban"></i></a>
+                        </td>
+                    </tr>
+
+                {% else %}
+                    <tr><td colspan="6">We have no users</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col">
+            <h3>User profile</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <td>{{ user.firstName }}</td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>{{ user.lastName }}</td>
+                </tr>
+                <tr>
+                    <th>Created at</th>
+                    <td>{{ user.createdAt|date('d/m/Y, H:i')}}</td>
+                </tr>
+                <tr>
+                    <th>Last updated at</th>
+                    <td>{% if user.lastModifiedAt %}{{ user.lastModifiedAt|date('d/m/Y, H:i')}}{% else %}{% endif %}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <a href="{{ path('edit_profile', {id: user.id}) }}" class="btn btn-outline-primary">Edit</a>
+            <a href="{{ path('profile_password_edit') }}" class="btn btn-outline-secondary">Change Password</a>
+        </div>
+    </div>
+
+{% endblock %}

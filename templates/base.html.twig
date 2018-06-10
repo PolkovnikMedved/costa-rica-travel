@@ -15,13 +15,29 @@
         <header>
             <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
                 <h5 class="my-0 mr-md-auto font-weight-normal"><a class="no-decor" href="{{ path('welcome') }}">CRTravel</a></h5>
-                {% if not app.user %}
+                {% if app.user %}
                 <nav class="my-2 my-md-0 mr-md-3">
                     <a class="p-2 text-dark" href="{{ path('location_index') }}">Locations</a>
                     <a class="p-2 text-dark" href="{{ path('partner_request_index') }}">Requests</a>
                     <a class="p-2 text-dark" href="{{ path('partner_index') }}">Partners</a>
                     <a class="p-2 text-dark" href="{{ path('partner_type_index') }}">Partners Types</a>
                 </nav>
+                <span>&nbsp;</span>
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('show_profile', {id: app.user.id}) }}">Profile</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="{{ path('all_users') }}">Users</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <span>&nbsp;</span>
+                <a type="button" class="btn btn-outline-primary" href="{{ path('logout') }}">Logout</a>
+                <span>&nbsp;</span>
+                {% else %}
                 <span>&nbsp;</span>
                 <a type="button" class="btn btn-outline-primary" href="{{ path('login') }}">Log in</a>
                 <span>&nbsp;</span>

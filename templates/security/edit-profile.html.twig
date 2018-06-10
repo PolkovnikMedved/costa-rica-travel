@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-1">
+            <a href="{{ path('show_profile', {id: app.user.id}) }}"><i class="fas fa-chevron-left fa-2x"></i></a>
+        </div>
+        <div class="col-11">
+            <h1>Edit User</h1>
+        </div>
+    </div>
+
+    {{ include('security/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}

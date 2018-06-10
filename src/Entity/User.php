@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ORM\Table(name = "CRT_USER")
+ * @ORM\Table(name = "crt_user")
  * @UniqueEntity(fields = {"email"})
  */
 class User implements UserInterface, \Serializable
@@ -63,16 +63,19 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
-     * @Assert\NotBlank()
-    *  @Assert\Length(
+     * @ORM\Column(type="string", length=100)
+     */
+    private $password;
+
+    /**
+     *  @Assert\Length(
      *      min = 6,
      *      max = 30,
      *      minMessage = "Your password must be at least {{ limit }} characters long",
      *      maxMessage = "Your password cannot be longer than {{ limit }} characters"
      * )
-     * @ORM\Column(type="string", length=100)
      */
-    private $password;
+    private $plainPassword;
 
     /**
      * @ORM\Column(type="boolean", name="is_archivated")
@@ -162,6 +165,22 @@ class User implements UserInterface, \Serializable
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
     }
 
     public function getArchivated(): ?string
