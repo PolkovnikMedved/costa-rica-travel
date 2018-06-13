@@ -34,8 +34,8 @@
                         <td>{{ user.firstName }}</td>
                         <td>{{ user.lastName }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.createdAt|date('d/m/Y, H:i') }}</td>
                         <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
+                        <td>{{ user.createdAt|date('d/m/Y, H:i') }}</td>
                         <td>
                             <a href="{{ path('activate_user', {'id': user.id}) }}" onclick="return confirm('Are you sure you want to change blacklisted property ?');"><i class="fas fa-ban"></i></a>
                         </td>
