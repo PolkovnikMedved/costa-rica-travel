@@ -22,5 +22,5 @@ yarn-error.log
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
-/.idea
+.idea
 /public/images
